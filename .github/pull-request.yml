@@ -1,8 +1,6 @@
 name: PR to master
-on:
-  push:
-    branches-ignore:
-      - master
+on: [push]
+
 jobs:
   auto-pull-request:
     name: PullRequestAction
