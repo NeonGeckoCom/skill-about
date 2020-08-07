@@ -14,7 +14,7 @@ on:
 
 jobs:
   pull_changes:
-    runs-on: ubuntu_latest
+    runs-on: ubuntu-latest
     steps:
       - name: Github Pull Request
         uses: repo-sync/pull-request@master
