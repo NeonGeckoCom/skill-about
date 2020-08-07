@@ -32,7 +32,7 @@ class AboutSkill(MycroftSkill):
             optionally("Neon").optionally("Long").require("Tell").require("License").build()
         self.register_intent(license_intent, self.read_license)
 
-        list_skills_intent = IntentBuilder("list_skills_intent").optionally("Neon").require("Tell").\
+        list_skills_intent = IntentBuilder("list_skills_intent").optionally("Neon").optionally("Tell").\
             require("Skills").build()
         self.register_intent(list_skills_intent, self.list_skills)
 
