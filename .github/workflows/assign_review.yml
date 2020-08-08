@@ -2,7 +2,7 @@ name: assign-review
 on:
   pull_request:
     types: [opened, reopened]
-    branches: [master]
+    branches: [dev]
 jobs:
   assign:
     runs-on: ubuntu-latest
