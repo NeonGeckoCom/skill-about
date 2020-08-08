@@ -18,3 +18,5 @@ jobs:
     steps:
       - name: Github Pull Request
         uses: repo-sync/pull-request@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
