@@ -1,9 +1,8 @@
-*.yml
+./*.yml
 !settingsmeta.yml
 *.lock
 .idea/
 .msm
 *.pyc
 __pycache__/
-!.github/*!.github/*
-!.github/*
+!.github/workflows/*
