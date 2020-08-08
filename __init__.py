@@ -37,15 +37,11 @@ class AboutSkill(MycroftSkill):
         self.register_intent(list_skills_intent, self.list_skills)
 
     def read_license(self, message):
-        # if (self.check_for_signal("skip_wake_word", -1) and message.data.get("Neon")) \
-        #         or not self.check_for_signal("skip_wake_word", -1) or self.check_for_signal("CORE_neonInUtterance"):
         if self.neon_in_request(message):
             if message.data.get("Long"):
                 self.speak_dialog("license_long")
             else:
                 self.speak_dialog("license_short")
-        # else:
-        #     self.check_for_signal("CORE_andCase")
 
     def list_skills(self, message):
         if self.neon_in_request(message):
