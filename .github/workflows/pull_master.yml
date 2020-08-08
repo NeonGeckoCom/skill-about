@@ -1,9 +1,4 @@
-# This workflow will triage pull requests and apply a label based on the
-# paths that are modified in the pull request.
-#
-# To use this workflow, you will need to set up a .github/labeler.yml
-# file with configuration.  For more information, see:
-# https://github.com/actions/labeler
+# This workflow will generate a PR for changes in dev into master for a skill
 
 name: Pull to Master
 on: 
@@ -20,3 +15,8 @@ jobs:
         uses: vsoch/pull-request-action@1.0.6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: assign-review-action
+        uses: delivery-much/actions-assigner@v1.0.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          team-reviewers: NeonDevs
