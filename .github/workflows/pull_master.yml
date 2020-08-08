@@ -16,7 +16,7 @@ jobs:
   pull_changes:
     runs-on: ubuntu-latest
     steps:
-      - name: Github Pull Request
-        uses: repo-sync/pull-request@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: pull-request-action
+          uses: vsoch/pull-request-action@1.0.6
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
