@@ -1,8 +1,5 @@
 name: assign-review
-on:
-  pull_request:
-    types: [opened, reopened]
-    branches: [master]
+on: [pull_request]
 jobs:
   assign:
     runs-on: ubuntu-latest
