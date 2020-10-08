@@ -1,0 +1,8 @@
+addReviewers: true
+addAssignees: true
+
+reviewers:
+  - NeonDaniel
+
+skipKeywords:
+numberOfReviewers: 0
