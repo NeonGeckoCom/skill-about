@@ -15,4 +15,5 @@ jobs:
         uses: vsoch/pull-request-action@1.0.10
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PULL_REQUEST_TEAM_REVIEWERS: NeonReviewers
+          PULL_REQUEST_REVIEWERS: 'neondaniel'
+          PULL_REQUEST_TEAM_REVIEWERS: 'neonreviewers'
