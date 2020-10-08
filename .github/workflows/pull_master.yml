@@ -11,7 +11,10 @@ jobs:
   pull_changes:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: pull-request-action
-        uses: vsoch/pull-request-action@1.0.6
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: repo-sync/pull-request@v2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_reviewer: 'neonreviewers'
+          pr_assignee: 'neondaniel'
