@@ -25,7 +25,7 @@ from os import listdir, path
 
 class AboutSkill(MycroftSkill):
     def __init__(self):
-        super(AboutSkill, self).__init__(name="LicenseSkill")
+        super(AboutSkill, self).__init__(name="AboutSkill")
 
     def initialize(self):
         license_intent = IntentBuilder("license_intent").\
