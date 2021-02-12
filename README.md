@@ -1,29 +1,26 @@
-# ![](https://0000.us/klatchat/app/files/neon_images/icons/neon_paw.png)About
+# <img src='https://0000.us/klatchat/app/files/neon_images/icons/neon_skill.png' card_color="#FF8600" width="50" style="vertical-align:bottom">About
 
-# Summary
+## Summary
 
 Skill used to provide information about Neon
 
-# Requirements
+## Requirements
 
 No special required packages for this skill.
 
-# Description
+## Description
 
-This skill provides information about Neon.
+This skill provides information about Neon. You can ask about licensing and your Neon installation.
 
-# How to Use
-
-Ask Neon about your installation:
-
+## Examples
 - "neon tell me my license"
 - "neon tell me my skills"
 
-# Location
+## Location
 
     ${skills}/about.neon
 
-# Examples
+## Details
 
 ### Text
 
@@ -42,11 +39,11 @@ Ask Neon about your installation:
 
   
 
-# Contact Support
+## Contact Support
 
 Use the [link](https://neongecko.com/ContactUs) or [submit an issue on GitHub](https://help.github.com/en/articles/creating-an-issue)
 
-# Credits
+## Credits
 
 reginaneon [neongeckocom](https://neongecko.com/) Mycroft AI
 
