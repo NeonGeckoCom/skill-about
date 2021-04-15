@@ -17,13 +17,14 @@
 # US Patents 2008-2021: US7424516, US20140161250, US20140177813, US8638908, US8068604, US8553852, US10530923, US10530924
 # China Patent: CN102017585  -  Europe Patent: EU2156652  -  Patents Pending
 
-from mycroft.skills import MycroftSkill
-from mycroft.util.log import LOG
+# from mycroft.skills import MycroftSkill
+# from mycroft.util.log import LOG
+from neon_utils.skills.neon_skill import NeonSkill, LOG
 from adapt.intent import IntentBuilder
 from os import listdir, path
 
 
-class AboutSkill(MycroftSkill):
+class AboutSkill(NeonSkill):
     def __init__(self):
         super(AboutSkill, self).__init__(name="AboutSkill")
 
