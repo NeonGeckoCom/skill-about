@@ -17,8 +17,6 @@
 # US Patents 2008-2021: US7424516, US20140161250, US20140177813, US8638908, US8068604, US8553852, US10530923, US10530924
 # China Patent: CN102017585  -  Europe Patent: EU2156652  -  Patents Pending
 
-# from mycroft.skills import MycroftSkill
-# from mycroft.util.log import LOG
 from neon_utils.skills.neon_skill import NeonSkill, LOG
 from adapt.intent import IntentBuilder
 from os import listdir, path
@@ -48,9 +46,10 @@ class AboutSkill(NeonSkill):
         if self.neon_in_request(message):
             skills_list = []
             LOG.debug("DM: List skills called")
-            for skill in listdir(self.configuration_available["dirVars"]["skillsDir"]):
+            skills_dir = self.configuration_available.get("dirVars", {}).get("skillsDir")
+            for skill in listdir(skills_dir):
                 LOG.debug(f"DM: {skill}")
-                if path.isdir(f'{self.configuration_available["dirVars"]["skillsDir"]}/{skill}'):
+                if path.isdir(path.join(skills_dir, skill)):
                     skill_name = str(path.basename(skill).split('.')[0]).replace('-', ' ').lower()
                     LOG.debug(f"DM: {skill_name}")
                     skills_list.append(skill_name)
