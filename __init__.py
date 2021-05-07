@@ -46,7 +46,7 @@ class AboutSkill(NeonSkill):
         if self.neon_in_request(message):
             skills_list = []
             LOG.debug("DM: List skills called")
-            skills_dir = self.configuration_available.get("dirVars", {}).get("skillsDir")
+            skills_dir = self.local_config.get("dirVars", {}).get("skillsDir")
             for skill in listdir(skills_dir):
                 LOG.debug(f"DM: {skill}")
                 if path.isdir(path.join(skills_dir, skill)):
