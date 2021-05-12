@@ -51,8 +51,8 @@ class AboutSkill(NeonSkill):
                 if path.isdir(path.join(skills_dir, skill)) and\
                         path.isfile(path.join(skills_dir, skill, "__init__.py")):
                     skill_name = str(path.basename(skill).split('.')[0]).replace('-', ' ').lower()
-                    skills_list.append(skill_name)
-            skills_list.remove('')
+                    if skill_name:
+                        skills_list.append(skill_name)
             skills_list.sort()
             skills_to_speak = ", ".join(skills_list)
             self.speak_dialog("skills_list", data={"list": skills_to_speak})
