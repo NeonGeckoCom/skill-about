@@ -45,18 +45,16 @@ class AboutSkill(NeonSkill):
     def list_skills(self, message):
         if self.neon_in_request(message):
             skills_list = []
-            LOG.debug("DM: List skills called")
-            skills_dir = self.local_config.get("dirVars", {}).get("skillsDir")
+            skills_dir = path.dirname(path.dirname(__file__))
+            # TODO: Utilize Skill Manager instead to support different install locations?
             for skill in listdir(skills_dir):
-                LOG.debug(f"DM: {skill}")
-                if path.isdir(path.join(skills_dir, skill)):
+                if path.isdir(path.join(skills_dir, skill)) and\
+                        path.isfile(path.join(skills_dir, skill, "__init__.py")):
                     skill_name = str(path.basename(skill).split('.')[0]).replace('-', ' ').lower()
-                    LOG.debug(f"DM: {skill_name}")
                     skills_list.append(skill_name)
             skills_list.remove('')
             skills_list.sort()
             skills_to_speak = ", ".join(skills_list)
-            LOG.debug(f"DM: {skills_to_speak}")
             self.speak_dialog("skills_list", data={"list": skills_to_speak})
 
     def stop(self):
