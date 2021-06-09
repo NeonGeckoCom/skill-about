@@ -12,7 +12,9 @@
     "warning": "",
     "systemDeps": false,
     "requirements": {
-        "python": [],
+        "python": [
+            "git+https://github.com/neongeckocom/neon-skill-utils"
+        ],
         "system": {},
         "skill": []
     },
@@ -36,6 +38,5 @@
     ],
     "skillname": "About",
     "authorname": "Neon",
-    "foldername": "about.neon",
-    "download_url": "https://api.github.com/repos/NeonGeckoCom/about.neon/zipball/master"
+    "foldername": null
 }
