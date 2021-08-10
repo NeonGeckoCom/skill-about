@@ -16,15 +16,20 @@
 # Specialized conversational reconveyance options from Conversation Processing Intelligence Corp.
 # US Patents 2008-2021: US7424516, US20140161250, US20140177813, US8638908, US8068604, US8553852, US10530923, US10530924
 # China Patent: CN102017585  -  Europe Patent: EU2156652  -  Patents Pending
+import json
 
-from neon_utils.skills.neon_skill import NeonSkill, LOG
+from neon_utils.skills.neon_skill import NeonSkill
 from adapt.intent import IntentBuilder
 from os import listdir, path
+
+from mycroft.skills import skill_api_method
 
 
 class AboutSkill(NeonSkill):
     def __init__(self):
         super(AboutSkill, self).__init__(name="AboutSkill")
+        self.skill_info = None
+        self._update_skills_data()
 
     def initialize(self):
         license_intent = IntentBuilder("license_intent").\
@@ -34,8 +39,13 @@ class AboutSkill(NeonSkill):
         list_skills_intent = IntentBuilder("list_skills_intent").optionally("Neon").optionally("Tell").\
             require("Skills").build()
         self.register_intent(list_skills_intent, self.list_skills)
+        # TODO: Reload skills list when skills are added/removed DM
 
     def read_license(self, message):
+        """
+        Reads back the NeonAI license from skill dialog
+        :param message: Message associated with request
+        """
         if self.neon_in_request(message):
             if message.data.get("Long"):
                 self.speak_dialog("license_long")
@@ -43,19 +53,41 @@ class AboutSkill(NeonSkill):
                 self.speak_dialog("license_short")
 
     def list_skills(self, message):
+        """
+        Lists all installed skills by name.
+        :param message: Message associated with request
+        """
         if self.neon_in_request(message):
-            skills_list = []
-            skills_dir = path.dirname(path.dirname(__file__))
-            # TODO: Utilize Skill Manager instead to support different install locations?
-            for skill in listdir(skills_dir):
-                if path.isdir(path.join(skills_dir, skill)) and\
-                        path.isfile(path.join(skills_dir, skill, "__init__.py")):
-                    skill_name = str(path.basename(skill).split('.')[0]).replace('-', ' ').lower()
-                    if skill_name:
-                        skills_list.append(skill_name)
+            skills_list = [s['title'] for s in self.skill_info if s.get('title')]
             skills_list.sort()
             skills_to_speak = ", ".join(skills_list)
             self.speak_dialog("skills_list", data={"list": skills_to_speak})
+
+    @skill_api_method
+    def skill_info_examples(self):
+        """
+        API Method to build a list of examples as listed in skill metadata.
+        """
+        examples = [d.get('examples', []) for d in self.skill_info]
+        flat_list = [item for sublist in examples for item in sublist]
+        return flat_list
+
+    def _update_skills_data(self):
+        """
+        Loads skill metadata for all installed skills.
+        """
+        skills = list()
+        skills_dir = path.dirname(path.dirname(__file__))
+        for skill in listdir(skills_dir):
+            if path.isdir(path.join(skills_dir, skill)) and path.isfile(path.join(skills_dir, skill, "__init__.py")):
+                if path.isfile(path.join(skills_dir, skill, "skill.json")):
+                    with open(path.join(skills_dir, skill, "skill.json")) as f:
+                        skill_data = json.load(f)
+                else:
+                    skill_name = str(path.basename(skill).split('.')[0]).replace('-', ' ').lower()
+                    skill_data = {"title": skill_name}
+                skills.append(skill_data)
+        self.skill_info = skills
 
     def stop(self):
         pass
