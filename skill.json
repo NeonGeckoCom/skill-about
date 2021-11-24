@@ -1,6 +1,6 @@
 {
     "title": "About",
-    "url": "https://github.com/NeonGeckoCom/about.neon",
+    "url": "https://github.com/neongeckocom/skill-about",
     "summary": "Skill used to provide information about Neon",
     "short_description": "Skill used to provide information about Neon",
     "description": "This skill provides information about Neon. You can ask about licensing and your Neon installation.",
@@ -27,7 +27,7 @@
         "arm"
     ],
     "branch": "master",
-    "license": "NeonAI License v1.0",
+    "license": "BSD-3-Clause",
     "icon": "https://0000.us/klatchat/app/files/neon_images/icons/neon_skill.png",
     "category": "",
     "categories": [
@@ -36,7 +36,11 @@
     "tags": [
         ""
     ],
+    "credits": [
+        "reginaneon",
+        "NeonGeckoCom"
+    ],
     "skillname": "About",
-    "authorname": "NeonGeckoCom",
+    "authorname": "neongeckocom",
     "foldername": null
 }

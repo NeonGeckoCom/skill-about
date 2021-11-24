@@ -45,5 +45,5 @@ Use the [link](https://neongecko.com/ContactUs) or [submit an issue on GitHub](h
 
 ## Credits
 
-reginaneon [neongeckocom](https://neongecko.com/) Mycroft AI
-
+[reginaneon](https://github.com/reginaneon)
+[NeonGeckoCom](https://github.com/NeonGeckoCom)
