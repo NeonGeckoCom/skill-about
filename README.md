@@ -47,3 +47,7 @@ Use the [link](https://neongecko.com/ContactUs) or [submit an issue on GitHub](h
 
 [reginaneon](https://github.com/reginaneon)
 [NeonGeckoCom](https://github.com/NeonGeckoCom)
+
+## Tags
+#NeonGecko Original
+#NeonAI
