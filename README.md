@@ -44,6 +44,10 @@ This skill provides information about Neon. You can ask about licensing and your
 Use the [link](https://neongecko.com/ContactUs) or [submit an issue on GitHub](https://help.github.com/en/articles/creating-an-issue)
 
 ## Credits
+[NeonDaniel](https://github.com/NeonDaniel)
+[reginaneon](https://github.com/reginaneon)
+[NeonGeckoCom](https://github.com/NeonGeckoCom)
 
-reginaneon [neongeckocom](https://neongecko.com/) Mycroft AI
-
+## Tags
+#NeonGecko Original
+#NeonAI
