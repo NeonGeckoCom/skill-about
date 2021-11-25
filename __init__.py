@@ -1,4 +1,4 @@
-# NEON AI (TM) SOFTWARE, Software Development Kit & Application Development System
+# NEON AI (TM) SOFTWARE, Software Development Kit & Application Framework
 # All trademark and other rights reserved by their respective owners
 # Copyright 2008-2022 Neongecko.com Inc.
 # Authors: Daniel McKnight, Guy Daniels, Elon Gasper, Richard Leeds,
@@ -78,7 +78,7 @@ class AboutSkill(NeonSkill):
         """
         API Method to build a list of examples as listed in skill metadata.
         """
-        examples = [d.get('examples', []) for d in self.skill_info]
+        examples = [d.get('examples') or list() for d in self.skill_info]
         flat_list = [item for sublist in examples for item in sublist]
         return flat_list
 
