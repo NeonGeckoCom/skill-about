@@ -32,7 +32,7 @@ from neon_utils.skills.neon_skill import NeonSkill
 from adapt.intent import IntentBuilder
 from os import listdir, path
 
-from mycroft.skills import skill_api_method
+from mycroft.skills import skill_api_method, intent_handler
 
 
 class AboutSkill(NeonSkill):
@@ -40,28 +40,24 @@ class AboutSkill(NeonSkill):
         super(AboutSkill, self).__init__(name="AboutSkill")
         self.skill_info = None
         self._update_skills_data()
-
-    def initialize(self):
-        license_intent = IntentBuilder("license_intent").\
-            optionally("Neon").optionally("Long").require("Tell").require("License").build()
-        self.register_intent(license_intent, self.read_license)
-
-        list_skills_intent = IntentBuilder("list_skills_intent").optionally("Neon").optionally("Tell").\
-            require("Skills").build()
-        self.register_intent(list_skills_intent, self.list_skills)
         # TODO: Reload skills list when skills are added/removed DM
 
+    @intent_handler(IntentBuilder("license_intent")
+                    .require("tell").require("license")
+                    .optionally("long"))
     def read_license(self, message):
         """
         Reads back the NeonAI license from skill dialog
         :param message: Message associated with request
         """
         if self.neon_in_request(message):
-            if message.data.get("Long"):
+            if message.data.get("long"):
                 self.speak_dialog("license_long")
             else:
                 self.speak_dialog("license_short")
 
+    @intent_handler(IntentBuilder("list_skills_intent")
+                    .optionally("tell").require("skills"))
     def list_skills(self, message):
         """
         Lists all installed skills by name.
@@ -74,7 +70,7 @@ class AboutSkill(NeonSkill):
             self.speak_dialog("skills_list", data={"list": skills_to_speak})
 
     @skill_api_method
-    def skill_info_examples(self):
+    def skill_info_examples(self) -> list:
         """
         API Method to build a list of examples as listed in skill metadata.
         """
