@@ -45,17 +45,17 @@ class TestSkill(unittest.TestCase):
         cls.skill.settings_write_path = cls.test_fs
         cls.skill.file_system.path = cls.test_fs
 
-        cls.skill._init_settings()
-        cls.skill.initialize()
         # Override speak and speak_dialog to test passed arguments
-        cls.skill.speak = Mock().call
+        cls.skill.speak = Mock()
         cls.skill.speak_dialog = Mock()
 
     @classmethod
     def tearDownClass(cls) -> None:
-        cls.skill.speak.reset_mock()
-        cls.skill.speak_dialog.reset_mock()
         shutil.rmtree(cls.test_fs)
+
+    def tearDown(self) -> None:
+        self.skill.speak.reset_mock()
+        self.skill.speak_dialog.reset_mock()
 
     def test_00_skill_init(self):
         # Test any parameters expected to be set in init or initialize methods
