@@ -1,6 +1,6 @@
 {
     "title": "About",
-    "url": "https://github.com/neongeckocom/skill-about",
+    "url": "https://github.com/NeonGeckoCom/skill-about",
     "summary": "Skill used to provide information about Neon",
     "short_description": "Skill used to provide information about Neon",
     "description": "This skill provides information about Neon. You can ask about licensing and your Neon installation.",
@@ -11,13 +11,7 @@
     "desktopFile": false,
     "warning": "",
     "systemDeps": false,
-    "requirements": {
-        "python": [
-            "neon-utils>=0.5.7"
-        ],
-        "system": {},
-        "skill": []
-    },
+    "requirements": "No special required packages for this skill.",
     "incompatible_skills": [],
     "platforms": [
         "i386",
@@ -30,9 +24,7 @@
     "license": "BSD-3-Clause",
     "icon": "https://0000.us/klatchat/app/files/neon_images/icons/neon_skill.png",
     "category": "",
-    "categories": [
-        ""
-    ],
+    "categories": [],
     "tags": [
         "NeonGecko Original",
         "NeonAI"
@@ -42,7 +34,8 @@
         "reginaneon",
         "NeonGeckoCom"
     ],
-    "skillname": "About",
-    "authorname": "neongeckocom",
-    "foldername": null
+    "skillname": "skill-about",
+    "authorname": "NeonGeckoCom",
+    "foldername": null,
+    "location": "    ${skills}/about.neon"
 }
