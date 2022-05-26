@@ -11,7 +11,13 @@
     "desktopFile": false,
     "warning": "",
     "systemDeps": false,
-    "requirements": "No special required packages for this skill.",
+    "requirements": {
+        "python": [
+            "neon-utils>=0.5.7"
+        ],
+        "system": {},
+        "skill": []
+    },
     "incompatible_skills": [],
     "platforms": [
         "i386",
@@ -36,6 +42,5 @@
     ],
     "skillname": "skill-about",
     "authorname": "NeonGeckoCom",
-    "foldername": null,
-    "location": "    ${skills}/about.neon"
+    "foldername": null
 }
