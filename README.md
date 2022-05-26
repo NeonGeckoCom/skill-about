@@ -4,10 +4,6 @@
 
 Skill used to provide information about Neon
 
-## Requirements
-
-No special required packages for this skill.
-
 ## Description
 
 This skill provides information about Neon. You can ask about licensing and your Neon installation.
@@ -15,29 +11,6 @@ This skill provides information about Neon. You can ask about licensing and your
 ## Examples
 - "neon tell me my license"
 - "neon tell me my skills"
-
-## Location
-
-    ${skills}/about.neon
-
-## Details
-
-### Text
-
-        neon tell me my skills
-        >> You have the following skills installed: about, alerts, audio record, avmusic, caffeinewiz,
-           controls, custom conversation, date time, device control center, eliza 1965 chatbot, fallback duck
-           duck go, fallback unknown, fallback wolfram alpha, i like brands, i like coupons, ip address,
-           joke, launcher, messaging, mycroft pairing, openhab, personal, speak, speed test, spelling, stock,
-           stop, support helper, synonyms, translation, usb cam, volume, weather, wifi setup, wiki
-       
-       neon tell me my license
-       >> Copyright 2019 Neongecko Inc. All Rights Reserved.
-### Picture
-
-### Video
-
-  
 
 ## Contact Support
 
