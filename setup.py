@@ -29,7 +29,7 @@
 from setuptools import setup, find_packages
 from os import getenv, path
 
-SKILL_NAME = "neon-skill-about"
+SKILL_NAME = "skill-about"
 SKILL_PKG = SKILL_NAME.replace('-', '_')
 # skill_id=package_name:SkillClass
 PLUGIN_ENTRY_POINT = f'{SKILL_NAME}.NeonGeckoCom={SKILL_PKG}:AboutSkill'
@@ -69,7 +69,7 @@ with open("./version.py", "r", encoding="utf-8") as v:
                 version = line.split("'")[1]
 
 setup(
-    name=SKILL_NAME,
+    name=f"neon-{SKILL_NAME}",
     version=version,
     url='https://github.com/NeonGeckoCom/skill-about',
     license='BSD-3-Clause',
