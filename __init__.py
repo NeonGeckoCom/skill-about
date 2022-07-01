@@ -42,11 +42,8 @@ class AboutSkill(NeonSkill):
     def __init__(self):
         super(AboutSkill, self).__init__(name="AboutSkill")
         self.skill_info = None
-        self._update_skills_data()
-
-    def initialize(self):
         # TODO: Reload skills list when skills are added/removed DM
-        self.bus.once("mycroft.ready", self._update_skills_data)
+        self._update_skills_data()
 
     @intent_handler(IntentBuilder("license_intent")
                     .require("tell").require("license")
