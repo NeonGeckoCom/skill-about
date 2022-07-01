@@ -27,7 +27,9 @@
 # SOFTWARE,  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import json
+import importlib.util
 
+from ovos_plugin_manager.skills import find_skill_plugins
 from neon_utils.skills.neon_skill import NeonSkill
 from adapt.intent import IntentBuilder
 from os import listdir, path
@@ -40,7 +42,10 @@ class AboutSkill(NeonSkill):
         super(AboutSkill, self).__init__(name="AboutSkill")
         self.skill_info = None
         self._update_skills_data()
+
+    def initialize(self):
         # TODO: Reload skills list when skills are added/removed DM
+        self.bus.once("mycroft.ready", self._update_skills_data)
 
     @intent_handler(IntentBuilder("license_intent")
                     .require("tell").require("license")
@@ -83,17 +88,46 @@ class AboutSkill(NeonSkill):
         Loads skill metadata for all installed skills.
         """
         skills = list()
-        skills_dir = path.dirname(path.dirname(__file__))
-        for skill in listdir(skills_dir):
-            if path.isdir(path.join(skills_dir, skill)) and path.isfile(path.join(skills_dir, skill, "__init__.py")):
-                if path.isfile(path.join(skills_dir, skill, "skill.json")):
-                    with open(path.join(skills_dir, skill, "skill.json")) as f:
-                        skill_data = json.load(f)
-                else:
-                    skill_name = str(path.basename(skill).split('.')[0]).replace('-', ' ').lower()
-                    skill_data = {"title": skill_name}
-                skills.append(skill_data)
-        self.skill_info = skills
+        skills_dirs = self.config_core["skills"].get("extra_directories") or []
+        for skills_dir in skills_dirs:
+            for skill in listdir(skills_dir):
+                if path.isdir(path.join(skills_dir, skill)) and \
+                        path.isfile(path.join(skills_dir, skill,
+                                              "__init__.py")):
+                    skills.append(self._load_skill_json(path.join(skills_dir,
+                                                                  skill)))
+        plugin_data = self._get_plugin_skill_data()
+        self.skill_info = list({*skills, *plugin_data})
+
+    def _get_plugin_skill_data(self) -> list:
+        """
+        Get a list of dict skill specs for all pip installed skills
+        """
+        skills = list()
+        plugins = find_skill_plugins()
+        for skill_class in plugins.values():
+            skill_dir = path.dirname(importlib.util.find_spec(
+                skill_class.__module__).origin)
+            skills.append(self._load_skill_json(skill_dir))
+        return skills
+
+    @staticmethod
+    def _load_skill_json(skill_dir: str) -> dict:
+        """
+        Get a dict representation of the specified skill (directory)
+        :param skill_dir: directory containing skill files
+        :returns: dict spec read from `skill.json` or built from skill dirname
+        """
+        if not path.isdir(skill_dir):
+            raise FileNotFoundError(f"{skill_dir} is not a valid directory")
+        if path.isfile(path.join(skill_dir, "skill.json")):
+            with open(path.join(skill_dir, "skill.json")) as f:
+                skill_data = json.load(f)
+        else:
+            skill_name = str(path.basename(skill_dir).split('.')[0]).\
+                replace('-', ' ').lower()
+            skill_data = {"title": skill_name}
+        return skill_data
 
     def stop(self):
         pass
