@@ -81,7 +81,7 @@ setup(
     long_description_content_type="text/markdown",
     package_dir={SKILL_PKG: ""},
     packages=[SKILL_PKG],
-    package_data={SKILL_PKG: ["locale/*"]},
+    package_data={SKILL_PKG: ["*.dialog", "*.voc", "*.intent", "*.rx"]},
     include_package_data=True,
     entry_points={"ovos.plugin.skill": PLUGIN_ENTRY_POINT}
 )
