@@ -26,8 +26,8 @@
 # NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE,  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-from setuptools import setup, find_packages
-from os import getenv, path
+from setuptools import setup
+from os import getenv, path, walk
 
 SKILL_NAME = "skill-about"
 SKILL_PKG = SKILL_NAME.replace('-', '_')
@@ -57,6 +57,20 @@ def get_requirements(requirements_filename: str):
     return requirements
 
 
+def find_resource_files():
+    resource_base_dirs = ("locale", "ui", "vocab", "dialog", "regex")
+    base_dir = path.dirname(__file__)
+    package_data = []
+    for res in resource_base_dirs:
+        if path.isdir(path.join(base_dir, res)):
+            for (directory, _, files) in walk(path.join(base_dir, res)):
+                if files:
+                    package_data.append(path.join(directory.replace(base_dir,
+                                                                    ""), '*'))
+    print(package_data)
+    return package_data
+
+
 with open("README.md", "r") as f:
     long_description = f.read()
 
@@ -81,7 +95,7 @@ setup(
     long_description_content_type="text/markdown",
     package_dir={SKILL_PKG: ""},
     packages=[SKILL_PKG],
-    package_data={SKILL_PKG: ["locale/**"]},
+    package_data={SKILL_PKG: find_resource_files()},
     include_package_data=True,
     entry_points={"ovos.plugin.skill": PLUGIN_ENTRY_POINT}
 )
