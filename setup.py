@@ -83,21 +83,20 @@ with open("./version.py", "r", encoding="utf-8") as v:
             else:
                 version = line.split("'")[1]
 
-# setup(
-#     name=f"neon-{SKILL_NAME}",
-#     version=version,
-#     url='https://github.com/NeonGeckoCom/skill-about',
-#     license='BSD-3-Clause',
-#     install_requires=get_requirements("requirements.txt"),
-#     author='Neongecko',
-#     author_email='developers@neon.ai',
-#     description="Neon About Skill",
-#     long_description=long_description,
-#     long_description_content_type="text/markdown",
-#     package_dir={SKILL_PKG: ""},
-#     packages=[SKILL_PKG],
-#     package_data={SKILL_PKG: find_resource_files()},
-#     include_package_data=True,
-#     entry_points={"ovos.plugin.skill": PLUGIN_ENTRY_POINT}
-# )
-find_resource_files()
+setup(
+    name=f"neon-{SKILL_NAME}",
+    version=version,
+    url='https://github.com/NeonGeckoCom/skill-about',
+    license='BSD-3-Clause',
+    install_requires=get_requirements("requirements.txt"),
+    author='Neongecko',
+    author_email='developers@neon.ai',
+    description="Neon About Skill",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    package_dir={SKILL_PKG: ""},
+    packages=[SKILL_PKG],
+    package_data={SKILL_PKG: find_resource_files()},
+    include_package_data=True,
+    entry_points={"ovos.plugin.skill": PLUGIN_ENTRY_POINT}
+)
