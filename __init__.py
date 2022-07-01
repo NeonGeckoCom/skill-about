@@ -31,6 +31,7 @@ import importlib.util
 
 from ovos_plugin_manager.skills import find_skill_plugins
 from neon_utils.skills.neon_skill import NeonSkill
+from neon_utils.log_utils import LOG
 from adapt.intent import IntentBuilder
 from os import listdir, path
 
@@ -97,7 +98,12 @@ class AboutSkill(NeonSkill):
                     skills.append(self._load_skill_json(path.join(skills_dir,
                                                                   skill)))
         plugin_data = self._get_plugin_skill_data()
-        self.skill_info = list(set(skills + plugin_data))
+        try:
+            combined = skills + plugin_data
+            self.skill_info = combined
+        except Exception as e:
+            LOG.exception(e)
+            self.skill_info = plugin_data
 
     def _get_plugin_skill_data(self) -> list:
         """
