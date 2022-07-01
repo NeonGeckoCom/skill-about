@@ -97,7 +97,7 @@ class AboutSkill(NeonSkill):
                     skills.append(self._load_skill_json(path.join(skills_dir,
                                                                   skill)))
         plugin_data = self._get_plugin_skill_data()
-        self.skill_info = list({*skills, *plugin_data})
+        self.skill_info = list(set(skills + plugin_data))
 
     def _get_plugin_skill_data(self) -> list:
         """
