@@ -32,7 +32,7 @@ from os import getenv, path, walk
 SKILL_NAME = "skill-about"
 SKILL_PKG = SKILL_NAME.replace('-', '_')
 # skill_id=package_name:SkillClass
-PLUGIN_ENTRY_POINT = f'{SKILL_NAME}.NeonGeckoCom={SKILL_PKG}:AboutSkill'
+PLUGIN_ENTRY_POINT = f'{SKILL_NAME}.neongeckocom={SKILL_PKG}:AboutSkill'
 
 
 def get_requirements(requirements_filename: str):
