@@ -103,6 +103,7 @@ class AboutSkill(NeonSkill):
             self.skill_info = plugin_data
 
     def _get_plugin_skill_data(self) -> list:
+        # TODO: Move plugin util to neon-utils
         """
         Get a list of dict skill specs for all pip installed skills
         """
