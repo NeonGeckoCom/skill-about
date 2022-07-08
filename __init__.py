@@ -28,6 +28,7 @@
 
 import json
 import importlib.util
+from os.path import isdir
 
 from ovos_plugin_manager.skills import find_skill_plugins
 from neon_utils.skills.neon_skill import NeonSkill
@@ -88,6 +89,9 @@ class AboutSkill(NeonSkill):
         skills = list()
         skills_dirs = self.config_core["skills"].get("extra_directories") or []
         for skills_dir in skills_dirs:
+            if not isdir(skills_dir):
+                LOG.warning(f"No such directory: {skills_dir}")
+                continue
             for skill in listdir(skills_dir):
                 if path.isdir(path.join(skills_dir, skill)) and \
                         path.isfile(path.join(skills_dir, skill,
