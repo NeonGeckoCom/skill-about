@@ -27,10 +27,9 @@
 # SOFTWARE,  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import json
-import importlib.util
-from os.path import isdir
 
-from ovos_plugin_manager.skills import find_skill_plugins
+from os.path import isdir
+from ovos_utils.skills.locations import get_skill_directories, get_plugin_skills
 from neon_utils.skills.neon_skill import NeonSkill
 from neon_utils.log_utils import LOG
 from adapt.intent import IntentBuilder
@@ -87,7 +86,7 @@ class AboutSkill(NeonSkill):
         Loads skill metadata for all installed skills.
         """
         skills = list()
-        skills_dirs = self.config_core["skills"].get("extra_directories") or []
+        skills_dirs = get_skill_directories()
         for skills_dir in skills_dirs:
             if not isdir(skills_dir):
                 LOG.warning(f"No such directory: {skills_dir}")
@@ -107,15 +106,12 @@ class AboutSkill(NeonSkill):
             self.skill_info = plugin_data
 
     def _get_plugin_skill_data(self) -> list:
-        # TODO: Move plugin util to neon-utils
         """
         Get a list of dict skill specs for all pip installed skills
         """
         skills = list()
-        plugins = find_skill_plugins()
-        for skill_class in plugins.values():
-            skill_dir = path.dirname(importlib.util.find_spec(
-                skill_class.__module__).origin)
+        plugin_dirs, _ = get_plugin_skills()
+        for skill_dir in plugin_dirs:
             skills.append(self._load_skill_json(skill_dir))
         return skills
 
