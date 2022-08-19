@@ -29,8 +29,7 @@
 import json
 
 from os.path import isdir
-from ovos_utils.skills.locations import get_skill_directories
-from ovos_plugin_manager.skills import find_skill_plugins
+from ovos_utils.skills.locations import get_skill_directories, get_plugin_skills
 from neon_utils.skills.neon_skill import NeonSkill
 from neon_utils.log_utils import LOG
 from adapt.intent import IntentBuilder
@@ -111,7 +110,7 @@ class AboutSkill(NeonSkill):
         Get a list of dict skill specs for all pip installed skills
         """
         skills = list()
-        plugin_dirs, _ = find_skill_plugins()
+        plugin_dirs, _ = get_plugin_skills()
         for skill_dir in plugin_dirs:
             skills.append(self._load_skill_json(skill_dir))
         return skills
