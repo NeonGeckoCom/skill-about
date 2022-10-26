@@ -28,6 +28,7 @@
 
 import json
 
+from random import shuffle
 from os.path import isdir
 from ovos_utils.skills.locations import get_skill_directories, get_plugin_skills
 from neon_utils.skills.neon_skill import NeonSkill
@@ -77,8 +78,11 @@ class AboutSkill(NeonSkill):
         """
         API Method to build a list of examples as listed in skill metadata.
         """
-        examples = [d.get('examples') or list() for d in self.skill_info]
-        flat_list = [item for sublist in examples for item in sublist]
+        examples = (d.get('examples') or list() for d in self.skill_info)
+        flat_list = [item for skill in examples
+                     for item in skill if
+                     not any((sym in item for sym in ('{', '/', '(', '[')))]
+        shuffle(flat_list)
         return flat_list
 
     def _update_skills_data(self):
