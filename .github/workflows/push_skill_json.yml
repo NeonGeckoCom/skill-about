@@ -1,6 +1,7 @@
 # Update skill.json at neon_skills repository
 name: Update neon_skills
 on:
+  workflow_dispatch:
   push:
     branches:
       - dev
@@ -14,7 +15,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Update skill.json in neon_skills
         run: |
-          git clone https://github.com/neongeckocom/neon_skills -b ${GITHUB_REF_NAME}
+          git clone https://github.com/neongeckocom/neon_skills -b ${{github.ref_name}}
           cp skill.json neon_skills/skill_metadata/${{github.event.repository.name}}.json
       - name: Push neon_skills changes
         uses: cpina/github-action-push-to-another-repository@main
@@ -24,7 +25,7 @@ jobs:
           destination-repository-name: neon_skills
           user-name: github-actions[bot]
           user-email: developers@neon.ai
-          target-branch: ${GITHUB_REF_NAME}
+          target-branch: ${{github.ref_name}}
           commit-message: Update skill.json for ${{github.event.repository.name}}
         env:
           API_TOKEN_GITHUB: ${{secrets.SKILL_JSON_TOKEN}}
