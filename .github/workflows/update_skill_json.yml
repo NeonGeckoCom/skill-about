@@ -34,6 +34,7 @@ jobs:
   push_skill_json:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    needs: update_skill_json
     steps:
       - uses: actions/checkout@v2
       - name: Copy skill.json output
