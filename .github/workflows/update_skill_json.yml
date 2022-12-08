@@ -31,3 +31,23 @@ jobs:
         with:
           commit_message: Update skill.json
           repository: action/skill/
+  push_skill_json:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v2
+      - name: Copy skill.json output
+        run: |
+          mkdir -p skill_output/skill_metadata
+          cp skill.json skill_output/skill_metadata/${{github.event.repository.name}}.json
+      - name: Push skill.json to repository
+        uses: cpina/github-action-push-to-another-repository@main
+        with:
+          source-directory: skill_output/
+          destination-github-username: neongeckocom
+          destination-repository-name: neon_skills
+          user-email: developers@neon.ai
+          target-branch: dev
+          commit-message: Update skill.json for ${{github.event.repository.name}}
+        env:
+          API_TOKEN_GITHUB: ${{secrets.GITHUB_TOKEN}}
