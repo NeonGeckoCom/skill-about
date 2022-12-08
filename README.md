@@ -9,8 +9,9 @@ Skill used to provide information about Neon
 This skill provides information about Neon. You can ask about licensing and your Neon installation.
 
 ## Examples
-- "neon tell me my license"
-- "neon tell me my skills"
+- Tell me my license.
+- Tell me my skills.
+- What can you do?
 
 ## Contact Support
 
