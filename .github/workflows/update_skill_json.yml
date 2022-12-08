@@ -51,4 +51,4 @@ jobs:
           target-branch: dev
           commit-message: Update skill.json for ${{github.event.repository.name}}
         env:
-          API_TOKEN_GITHUB: ${{secrets.GITHUB_TOKEN}}
+          API_TOKEN_GITHUB: ${{secrets.SKILL_JSON_TOKEN}}
