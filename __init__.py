@@ -46,7 +46,7 @@ class AboutSkill(NeonSkill):
         # TODO: Reload skills list when skills are added/removed DM
         self._update_skills_data()
 
-    @intent_handler(IntentBuilder("license_intent")
+    @intent_handler(IntentBuilder("LicenseIntent")
                     .require("tell").require("license")
                     .optionally("long"))
     def read_license(self, message):
@@ -60,7 +60,7 @@ class AboutSkill(NeonSkill):
             else:
                 self.speak_dialog("license_short")
 
-    @intent_handler(IntentBuilder("list_skills_intent")
+    @intent_handler(IntentBuilder("ListSkillsIntent")
                     .optionally("tell").require("skills"))
     def list_skills(self, message):
         """
