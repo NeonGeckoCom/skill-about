@@ -223,8 +223,8 @@ class TestSkillLoading(unittest.TestCase):
 
 class TestSkillIntentMatching(unittest.TestCase):
     # Import and initialize installed skill
-    from skill_ip_address import IPSkill
-    skill = IPSkill()
+    from skill_about import AboutSkill
+    skill = AboutSkill()
 
     import yaml
     test_intents = join(dirname(__file__), 'test_intents.yaml')
