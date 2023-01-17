@@ -28,6 +28,7 @@
 
 import json
 
+from typing import List
 from random import shuffle
 from os.path import isdir
 from ovos_utils.skills.locations import get_skill_directories, get_plugin_skills
@@ -46,7 +47,14 @@ class AboutSkill(NeonSkill):
         # TODO: Reload skills list when skills are added/removed DM
         self._update_skills_data()
 
-    @intent_handler(IntentBuilder("license_intent")
+    @property
+    def ignored_skills(self) -> List[str]:
+        """
+        Get configured skills to ignore (default blacklisted skills)
+        """
+        return self.config_core.get('skills').get('blacklisted_skills')
+
+    @intent_handler(IntentBuilder("LicenseIntent")
                     .require("tell").require("license")
                     .optionally("long"))
     def read_license(self, message):
@@ -60,7 +68,7 @@ class AboutSkill(NeonSkill):
             else:
                 self.speak_dialog("license_short")
 
-    @intent_handler(IntentBuilder("list_skills_intent")
+    @intent_handler(IntentBuilder("ListSkillsIntent")
                     .optionally("tell").require("skills"))
     def list_skills(self, message):
         """
@@ -96,6 +104,9 @@ class AboutSkill(NeonSkill):
                 LOG.warning(f"No such directory: {skills_dir}")
                 continue
             for skill in listdir(skills_dir):
+                if skill in self.ignored_skills:
+                    LOG.info(f"Ignoring: {skill}")
+                    continue
                 if path.isdir(path.join(skills_dir, skill)) and \
                         path.isfile(path.join(skills_dir, skill,
                                               "__init__.py")):
@@ -114,8 +125,13 @@ class AboutSkill(NeonSkill):
         Get a list of dict skill specs for all pip installed skills
         """
         skills = list()
-        plugin_dirs, _ = get_plugin_skills()
-        for skill_dir in plugin_dirs:
+        plugin_dirs, plugin_ids = get_plugin_skills()
+        plugins = {plugin_ids[i]: plugin_dirs[i]
+                   for i in range(len(plugin_ids))}
+        for skill_id, skill_dir in plugins.items():
+            if skill_id in self.ignored_skills:
+                LOG.info(f"Ignoring: {skill_id}")
+                continue
             skills.append(self._load_skill_json(skill_dir))
         return skills
 
