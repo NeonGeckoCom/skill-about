@@ -52,6 +52,13 @@ class AboutSkill(NeonSkill):
         # TODO: Reload skills list when skills are added/removed DM
         self._update_skills_data()
 
+    def initialize(self):
+        self.add_event("mycroft.ready", self.on_ready)
+
+    def on_ready(self, _):
+        LOG.debug("Updating skills data on ready")
+        self._update_skills_data()
+
     @property
     def ignored_skills(self) -> List[str]:
         """
@@ -104,6 +111,7 @@ class AboutSkill(NeonSkill):
         """
         skills = list()
         skills_dirs = get_skill_directories()
+        LOG.debug(f"Found {len(skills_dirs)} legacy skills")
         for skills_dir in skills_dirs:
             if not isdir(skills_dir):
                 LOG.warning(f"No such directory: {skills_dir}")
@@ -131,6 +139,7 @@ class AboutSkill(NeonSkill):
         """
         skills = list()
         plugin_dirs, plugin_ids = get_plugin_skills()
+        LOG.debug(f"Found {len(plugin_dirs)} plugin skills")
         plugins = {plugin_ids[i]: plugin_dirs[i]
                    for i in range(len(plugin_ids))}
         for skill_id, skill_dir in plugins.items():
@@ -153,6 +162,7 @@ class AboutSkill(NeonSkill):
             with open(path.join(skill_dir, "skill.json")) as f:
                 skill_data = json.load(f)
         else:
+            LOG.error(f"Missing skill.json in: {skill_dir}")
             skill_name = str(path.basename(skill_dir).split('.')[0]).\
                 replace('-', ' ').lower()
             skill_data = {"title": skill_name}
