@@ -36,11 +36,16 @@ from neon_utils.skills.neon_skill import NeonSkill
 from neon_utils.log_utils import LOG
 from adapt.intent import IntentBuilder
 from os import listdir, path
+from ovos_workshop.skills.ovos import SkillNetworkRequirements, classproperty
 
 from mycroft.skills import skill_api_method, intent_handler
 
 
 class AboutSkill(NeonSkill):
+    @classproperty
+    def network_requirements(self):
+        return SkillNetworkRequirements(False, False, False, False)
+
     def __init__(self):
         super(AboutSkill, self).__init__(name="AboutSkill")
         self.skill_info = None
