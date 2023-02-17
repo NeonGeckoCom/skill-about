@@ -9,5 +9,5 @@ on:
 
 jobs:
   push_skill_json:
-    uses: neongeckocom/.github/.github/workflows/skill_update_meta_repo.yml@FEAT_SkillWorkflows
+    uses: neongeckocom/.github/.github/workflows/skill_update_meta_repo.yml@master
     secrets: inherit
