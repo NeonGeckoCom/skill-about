@@ -1,4 +1,4 @@
-# This workflow will generate a PR for changes in cert into master
+# This workflow will generate a PR for changes in dev into master
 
 name: Pull to Master
 on:
