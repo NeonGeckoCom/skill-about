@@ -32,6 +32,8 @@ from typing import List
 from random import shuffle
 from os.path import isdir
 from ovos_utils.skills.locations import get_skill_directories, get_plugin_skills
+from ovos_utils import classproperty
+from ovos_utils.process_utils import RuntimeRequirements
 from neon_utils.skills.neon_skill import NeonSkill
 from neon_utils.log_utils import LOG
 from adapt.intent import IntentBuilder
@@ -46,6 +48,18 @@ class AboutSkill(NeonSkill):
         self.skill_info = None
         # TODO: Reload skills list when skills are added/removed DM
         self._update_skills_data()
+
+    @classproperty
+    def runtime_requirements(self):
+        return RuntimeRequirements(network_before_load=False,
+                                   internet_before_load=False,
+                                   gui_before_load=False,
+                                   requires_internet=False,
+                                   requires_network=False,
+                                   requires_gui=False,
+                                   no_internet_fallback=True,
+                                   no_network_fallback=True,
+                                   no_gui_fallback=True)
 
     @property
     def ignored_skills(self) -> List[str]:
