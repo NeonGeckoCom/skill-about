@@ -51,7 +51,7 @@ class AboutSkill(NeonSkill):
 
     @classproperty
     def runtime_requirements(self):
-        return RuntimeRequirements(network_before_load = False,
+        return RuntimeRequirements(network_before_load=False,
                                    internet_before_load=False,
                                    gui_before_load=False,
                                    requires_internet=False,
