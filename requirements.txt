@@ -1,3 +1,2 @@
-neon-utils[network,configuration]~=1.0,>=1.2.2a6
-# TODO: remove network and config extras
+neon-utils~=1.2,>=1.2.2
 ovos-utils~=0.0.28
