@@ -2,11 +2,12 @@
 
 ## Summary
 
-Skill used to provide information about Neon
+Skill used to provide information about this assistant.
 
 ## Description
 
-This skill provides information about Neon. You can ask about licensing and your Neon installation.
+This skill provides information about Neon. You can ask about licensing and your Neon installation. This skill also
+provides formatted examples for installed skills.
 
 ## Examples
 - Tell me my license.
