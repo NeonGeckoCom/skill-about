@@ -35,3 +35,12 @@ en-us:
     - tell me installed skills
     - what skills are installed
     - what can you do
+
+unmatched intents:
+  en-us:
+    - what is your name
+    - what is my name
+    - tell me what a skill is
+#    - tell me what skills are
+    - what can you tell me about life
+    - tell me what a license is
