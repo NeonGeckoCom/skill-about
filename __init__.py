@@ -169,7 +169,3 @@ class AboutSkill(NeonSkill):
 
     def stop(self):
         pass
-
-
-def create_skill():
-    return AboutSkill()
