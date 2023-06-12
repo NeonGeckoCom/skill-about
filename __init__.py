@@ -44,7 +44,7 @@ from mycroft.skills import skill_api_method, intent_handler
 
 class AboutSkill(NeonSkill):
     def __init__(self):
-        super(AboutSkill, self).__init__(name="AboutSkill")
+        NeonSkill.__init__(self)
         self.skill_info = None
         # TODO: Reload skills list when skills are added/removed DM
         self._update_skills_data()
