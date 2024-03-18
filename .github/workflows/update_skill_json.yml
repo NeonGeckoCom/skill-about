@@ -1,9 +1,12 @@
-# This workflow will run unit tests
+# This workflow will update skill.json files
 
 name: Update skill.json
 on:
   push:
+    branches-ignore:
+      - dev
+      - master
 
 jobs:
   update_skill_json:
-    uses: neongeckocom/.github/.github/workflows/skill_update_json_spec.yml@master
+    uses: neongeckocom/.github/.github/workflows/skill_update_json_spec.yml@FEAT_UpdateSkillMetaParsing
