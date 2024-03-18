@@ -1,0 +1,22 @@
+{
+    "skill_id": "skill-about.neongeckocom",
+    "source": "https://github.com/NeonGeckoCom/skill-about",
+    "package_name": "neon-skill-about",
+    "license": "BSD-3-Clause",
+    "author": "Neongecko",
+    "description": "Skill used to provide information about this assistant.",
+    "name": "About",
+    "examples": [
+        "Tell me my license.",
+        "Tell me my skills.",
+        "What can you do?"
+    ],
+    "tags": [
+        "Daily",
+        "Information",
+        "NeonGecko Original",
+        "NeonAI"
+    ],
+    "icon": "https://0000.us/klatchat/app/files/neon_images/icons/neon_skill.png",
+    "extra_plugins": {}
+}
