@@ -1,20 +1,20 @@
 # Changelog
 
-## [0.2.2a2](https://github.com/NeonGeckoCom/skill-about/tree/0.2.2a2) (2023-06-15)
+## [1.0.1a2](https://github.com/NeonGeckoCom/skill-about/tree/1.0.1a2) (2024-03-01)
 
-[Full Changelog](https://github.com/NeonGeckoCom/skill-about/compare/0.2.2a1...0.2.2a2)
-
-**Merged pull requests:**
-
-- Remove `create_skill` function [\#77](https://github.com/NeonGeckoCom/skill-about/pull/77) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [0.2.2a1](https://github.com/NeonGeckoCom/skill-about/tree/0.2.2a1) (2023-06-12)
-
-[Full Changelog](https://github.com/NeonGeckoCom/skill-about/compare/0.2.1...0.2.2a1)
+[Full Changelog](https://github.com/NeonGeckoCom/skill-about/compare/1.0.1a1...1.0.1a2)
 
 **Merged pull requests:**
 
-- Update automation to latest best practices [\#76](https://github.com/NeonGeckoCom/skill-about/pull/76) ([NeonDaniel](https://github.com/NeonDaniel))
+- Update neon-minerva test dependency to stable spec [\#81](https://github.com/NeonGeckoCom/skill-about/pull/81) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [1.0.1a1](https://github.com/NeonGeckoCom/skill-about/tree/1.0.1a1) (2024-02-01)
+
+[Full Changelog](https://github.com/NeonGeckoCom/skill-about/compare/1.0.0...1.0.1a1)
+
+**Merged pull requests:**
+
+- Support ovos-utils 0.1 [\#80](https://github.com/NeonGeckoCom/skill-about/pull/80) ([NeonDaniel](https://github.com/NeonDaniel))
 
 
 
