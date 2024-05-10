@@ -38,8 +38,7 @@ from neon_utils.skills.neon_skill import NeonSkill
 from neon_utils.log_utils import LOG
 from adapt.intent import IntentBuilder
 from os import listdir, path
-
-from mycroft.skills import skill_api_method, intent_handler
+from ovos_workshop.decorators import skill_api_method, intent_handler
 
 
 class AboutSkill(NeonSkill):
