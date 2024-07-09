@@ -31,15 +31,14 @@ import json
 from typing import List
 from random import shuffle
 from os.path import isdir
-from ovos_utils.skills.locations import get_skill_directories, get_plugin_skills
+from ovos_plugin_manager.skills import get_skill_directories, get_plugin_skills
 from ovos_utils import classproperty
 from ovos_utils.process_utils import RuntimeRequirements
 from neon_utils.skills.neon_skill import NeonSkill
 from neon_utils.log_utils import LOG
 from adapt.intent import IntentBuilder
 from os import listdir, path
-
-from mycroft.skills import skill_api_method, intent_handler
+from ovos_workshop.decorators import skill_api_method, intent_handler
 
 
 class AboutSkill(NeonSkill):
