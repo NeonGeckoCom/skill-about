@@ -1,20 +1,20 @@
 # Changelog
 
-## [1.0.1a2](https://github.com/NeonGeckoCom/skill-about/tree/1.0.1a2) (2024-03-01)
+## [1.0.2a2](https://github.com/NeonGeckoCom/skill-about/tree/1.0.2a2) (2024-05-10)
 
-[Full Changelog](https://github.com/NeonGeckoCom/skill-about/compare/1.0.1a1...1.0.1a2)
-
-**Merged pull requests:**
-
-- Update neon-minerva test dependency to stable spec [\#81](https://github.com/NeonGeckoCom/skill-about/pull/81) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [1.0.1a1](https://github.com/NeonGeckoCom/skill-about/tree/1.0.1a1) (2024-02-01)
-
-[Full Changelog](https://github.com/NeonGeckoCom/skill-about/compare/1.0.0...1.0.1a1)
+[Full Changelog](https://github.com/NeonGeckoCom/skill-about/compare/1.0.2a1...1.0.2a2)
 
 **Merged pull requests:**
 
-- Support ovos-utils 0.1 [\#80](https://github.com/NeonGeckoCom/skill-about/pull/80) ([NeonDaniel](https://github.com/NeonDaniel))
+- Remove `mycroft` imports [\#85](https://github.com/NeonGeckoCom/skill-about/pull/85) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [1.0.2a1](https://github.com/NeonGeckoCom/skill-about/tree/1.0.2a1) (2024-04-29)
+
+[Full Changelog](https://github.com/NeonGeckoCom/skill-about/compare/1.0.1...1.0.2a1)
+
+**Merged pull requests:**
+
+- feat: fix import for ovos-utils 0.1.0 [\#84](https://github.com/NeonGeckoCom/skill-about/pull/84) ([mikejgray](https://github.com/mikejgray))
 
 
 
