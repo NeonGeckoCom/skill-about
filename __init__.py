@@ -36,7 +36,7 @@ from ovos_utils import classproperty
 from ovos_utils.process_utils import RuntimeRequirements
 from neon_utils.skills.neon_skill import NeonSkill
 from neon_utils.log_utils import LOG
-from adapt.intent import IntentBuilder
+from ovos_workshop.intents import IntentBuilder
 from os import listdir, path
 from ovos_workshop.decorators import skill_api_method, intent_handler
 
