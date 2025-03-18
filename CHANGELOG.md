@@ -1,20 +1,20 @@
 # Changelog
 
-## [1.0.2a2](https://github.com/NeonGeckoCom/skill-about/tree/1.0.2a2) (2024-05-10)
+## [1.0.3a2](https://github.com/NeonGeckoCom/skill-about/tree/1.0.3a2) (2025-03-11)
 
-[Full Changelog](https://github.com/NeonGeckoCom/skill-about/compare/1.0.2a1...1.0.2a2)
-
-**Merged pull requests:**
-
-- Remove `mycroft` imports [\#85](https://github.com/NeonGeckoCom/skill-about/pull/85) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [1.0.2a1](https://github.com/NeonGeckoCom/skill-about/tree/1.0.2a1) (2024-04-29)
-
-[Full Changelog](https://github.com/NeonGeckoCom/skill-about/compare/1.0.1...1.0.2a1)
+[Full Changelog](https://github.com/NeonGeckoCom/skill-about/compare/1.0.3a1...1.0.3a2)
 
 **Merged pull requests:**
 
-- feat: fix import for ovos-utils 0.1.0 [\#84](https://github.com/NeonGeckoCom/skill-about/pull/84) ([mikejgray](https://github.com/mikejgray))
+- Update automation, gitignore, and license notices [\#88](https://github.com/NeonGeckoCom/skill-about/pull/88) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [1.0.3a1](https://github.com/NeonGeckoCom/skill-about/tree/1.0.3a1) (2024-09-13)
+
+[Full Changelog](https://github.com/NeonGeckoCom/skill-about/compare/1.0.2...1.0.3a1)
+
+**Merged pull requests:**
+
+- Update OVOS dependencies to allow 0.x versions [\#87](https://github.com/NeonGeckoCom/skill-about/pull/87) ([NeonDaniel](https://github.com/NeonDaniel))
 
 
 
