@@ -36,6 +36,43 @@ en-us:
     - what skills are installed
     - what can you do
 
+uk-ua:
+  LicenseIntent:
+    - яка ліцензія
+    - скажи мені ліцензія
+    - розкажи про ліцензію
+    - скажи мені повну ліцензію:
+        - long: повний
+    - розкажи довгу ліцензію:
+        - long: довгий
+    - розповіси розширену ліцензію:
+        - long: розширений
+  ListSkillsIntent:
+    - скажи мені мої навички
+    - переліч навички
+    - розкажи ваші навички
+    - що ти можеш зробити
+    - що я можу зробити
+    - що можна зробити
+
+pl-pl:
+  LicenseIntent:
+    - jaka jest licencja
+    - powiedz mi licencja
+    - co to jest licencja
+    - powiedz mi pełną licencję:
+        - long: pełna
+    - wymień kompletną licencję:
+        - long: kompletna
+    - jakie są twoje długa licencja:
+        - long: długa
+  ListSkillsIntent:
+    - powiedz mi moje umiejętności
+    - wymień twoje umiejętności
+    - jakie są moje umiejętności
+    - co potrafisz
+    - co możesz zrobić
+
 unmatched intents:
   en-us:
     - what is your name
@@ -44,3 +81,15 @@ unmatched intents:
 #    - tell me what skills are
     - what can you tell me about life
     - tell me what a license is
+  uk-ua:
+    - яке твоє ім'я
+    - яке моє ім'я
+    - розкажи що таке навичка
+    - що ти можеш розповісти про життя
+    - розкажи, що таке ліцензування
+  pl-pl:
+    - jak się nazywasz
+    - jak mam na imię
+    - powiedz mi, co to jest umiejętność
+    - co możesz mi powiedzieć o życiu
+    - powiedz mi, czym jest licencjonowanie

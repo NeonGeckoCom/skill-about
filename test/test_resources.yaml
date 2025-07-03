@@ -4,6 +4,7 @@
 languages:
   - "en-us"
   - "uk-ua"
+  - "pl-pl"
 
 # vocab is lowercase .voc file basenames
 vocab:
