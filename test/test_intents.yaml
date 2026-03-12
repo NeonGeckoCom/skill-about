@@ -73,6 +73,25 @@ pl-pl:
     - co potrafisz
     - co możesz zrobić
 
+fr-fr:
+  LicenseIntent:
+    - quelle est ma licence
+    - dis-moi la licence
+    - dis-moi les licence complète:
+        - long: complet
+    - dis-moi les licence longue:
+        - long: long
+    - dis-moi les licence étendue:
+        - long: étendu
+    - dis-moi les licence intégrale:
+        - long: intégral
+  ListSkillsIntent:
+    - dis-moi mes compétences
+    - liste mes compétences
+    - quelles sont mes compétences
+    - ce que tu peux faire
+    - ce que vous pouvez faire
+
 unmatched intents:
   en-us:
     - what is your name
@@ -93,3 +112,9 @@ unmatched intents:
     - powiedz mi, co to jest umiejętność
     - co możesz mi powiedzieć o życiu
     - powiedz mi, czym jest licencjonowanie
+  fr-fr:
+    - comment t'appelles-tu
+    - quel est ton nom
+    - parle-moi de ce qu'est une compétence
+    - que peux-tu me dire sur la vie
+    - parle-moi de ce qu'est une licence
