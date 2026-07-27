@@ -1,20 +1,20 @@
 # Changelog
 
-## [1.0.3a2](https://github.com/NeonGeckoCom/skill-about/tree/1.0.3a2) (2025-03-11)
+## [1.0.4](https://github.com/NeonGeckoCom/skill-about/tree/1.0.4) (2026-07-27)
 
-[Full Changelog](https://github.com/NeonGeckoCom/skill-about/compare/1.0.3a1...1.0.3a2)
+[Full Changelog](https://github.com/NeonGeckoCom/skill-about/compare/1.0.4a1...1.0.4)
+
+**Implemented enhancements:**
+
+- \[FEAT\] Ukrainian Intent Tests [\#69](https://github.com/NeonGeckoCom/skill-about/issues/69)
+
+## [1.0.4a1](https://github.com/NeonGeckoCom/skill-about/tree/1.0.4a1) (2026-07-27)
+
+[Full Changelog](https://github.com/NeonGeckoCom/skill-about/compare/1.0.3...1.0.4a1)
 
 **Merged pull requests:**
 
-- Update automation, gitignore, and license notices [\#88](https://github.com/NeonGeckoCom/skill-about/pull/88) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [1.0.3a1](https://github.com/NeonGeckoCom/skill-about/tree/1.0.3a1) (2024-09-13)
-
-[Full Changelog](https://github.com/NeonGeckoCom/skill-about/compare/1.0.2...1.0.3a1)
-
-**Merged pull requests:**
-
-- Update OVOS dependencies to allow 0.x versions [\#87](https://github.com/NeonGeckoCom/skill-about/pull/87) ([NeonDaniel](https://github.com/NeonDaniel))
+- Update Ukrainian Translation [\#93](https://github.com/NeonGeckoCom/skill-about/pull/93) ([NeonDaniel](https://github.com/NeonDaniel))
 
 
 
